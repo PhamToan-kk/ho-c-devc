@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="message"></div>
+    <h1 style="background-color: red;">Congratulations to you </h1>
+    <input type="number" id="number">
+    <br>
+    <button id="btn" >guessButton</button>
+    <h4 id="result" ></h4>
+</body>
+<script>
+    const btn = document.getElementById('btn')
+    let counter = 0
+    const numOfProgram = Math.ceil(Math.random()*10)
+    console.log('so random ',Math.ceil(numOfProgram))
+    btn.addEventListener('click',()=>{ 
+        if(counter < 4){
+        counter++
+        const input = parseInt(document.getElementById('number').value)
+        console.log('so nhap vao la ',input)
+        if(input < numOfProgram) {
+            document.getElementById("result").innerHTML = `Sorry your guess is too low! you have ${4-counter} guess`;
+            document.getElementById("result").style.backgroundColor= "red"
+             }
+        if(input > numOfProgram) {
+            document.getElementById("result").innerHTML = `Sorry your guess is too high! you have ${4-counter} guess`;
+            document.getElementById("result").style.backgroundColor= "red"
+            }
+        if(input == numOfProgram) {
+            document.getElementById("result").innerHTML = "Congratulations!! You guessed correctly.!";
+            document.getElementById("result").style.backgroundColor= "green"
+
+            }
+        } else{
+            alert('you are limitted guess')
+        }
+        
+
+
+        //doucutmm.textContent
+    })
+
+   
+</script>
+</html>
